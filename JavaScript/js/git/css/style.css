@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f1f4f8;
+    color: #333;
+}
+
+header {
+    background: #123b63;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+header h1 {
+    margin-bottom: 10px;
+}
+
+main {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.formulario,
+.tabela-container {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px #00000012;
+}
+
+h2 {
+    color: #123b63;
+    margin-bottom: 20px;
+}
+
+#formCadastro {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.campo label {
+    font-weight: bold;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid #438bd1;
+    border-color: #438bd1;
+}
+
+.botoes {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 10px;
+}
+
+button {
+    padding: 12px 18px;
+    border: none;
+    border-radius: 6px;
+    background: #1675c1;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+.cancelar {
+    background: #777;
+}
+
+.aviso {
+    grid-column: 1 / -1;
+    font-size: 13px;
+    color: #777;
+}
+
+#totalRegistros {
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.tabela-scroll {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 750px;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 13px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background: #123b63;
+    color: white;
+}
+
+tr:hover {
+    background: #f5f8fc;
+}
+
+.editar {
+    background: #e69b22;
+    margin: 3px;
+}
+
+.excluir {
+    background: #d93636;
+    margin: 3px;
+}
+
+#mensagemCep {
+    font-size: 13px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+}
+
+
+@media (max-width: 600px) {
+
+    main {
+        padding: 0 10px;
+        margin: 15px auto;
+    }
+
+    .formulario,
+    .tabela-container {
+        padding: 15px;
+    }
+
+    #formCadastro {
+        grid-template-columns: 1fr;
+    }
+
+    .botoes {
+        flex-direction: column;
+    }
+
+    .botoes button {
+        width: 100%;
+    }
+
+    header h1 {
+        font-size: 23px;
+    }
+}

@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+</head>
+<body>
+
+    <h1>Itens cadastrados: <span id="quantidade">0</span></h1>
+
+    <input type="text"     oninput="aparecer()" id="nomeProduto"
+    placeholder="Digite o nome do produto">
+
+    <button id="adicionarProduto" onclick="adicionarProdut()">
+        Adicionar Produto
+    </button>
+
+    <div id="container"></div>
+
+    <script>
+let produtos = JSON.parse(localStorage.getItem("produto")) || [];
+
+const container = document.getElementById("container");
+let quantidade = document.getElementById("quantidade");
+
+function adicionarProdut() {
+
+    let adicionarProduto1 = document.getElementById("nomeProduto");
+
+    let nome = adicionarProduto1.value.trim().toLowerCase();
+
+    if (nome !== "") {
+
+        produtos.push({ nome: nome });
+
+        localStorage.setItem("produto", JSON.stringify(produtos));
+
+        adicionarProduto1.value = "";
+
+        olhar();
+    }
+}
+
+function olhar(lista = produtos) {
+
+    quantidade.textContent = produtos.length;
+
+    container.innerHTML = "";
+
+    lista.forEach(function(produto) {
+
+        let card = document.createElement("div");
+        card.className = "card";
+
+        let p = document.createElement("p");
+
+        p.textContent = produto.nome;
+
+        container.appendChild(card);
+        card.appendChild(p);
+
+    });
+}
+
+function aparecer() {
+
+    const pesquisa = document.getElementById("nomeProduto").value.trim().toLowerCase();
+
+    const filtrado = produtos.filter((produto) =>
+        produto.nome.includes(pesquisa)
+    );
+
+    olhar(filtrado);
+}
+
+olhar();
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Catálogo de produtos</h1>
+
+<h2>Favoritos: <span id="quantidade">0</span></h2>
+
+<div id="container"></div>
+
+<!---
+// 1. Selecionar os elementos do HTML
+const container = document.getElementById("container");
+const quantidade = document.getElementById("quantidade");
+
+// 2. Criar o array de produtos
+let produtos = [
+    { id: 1, nome: "POCO X8" },
+    { id: 2, nome: "ASUS TUF" },
+    { id: 3, nome: "POCO X5" },
+    { id: 4, nome: "iPhone" }
+];
+
+// 3. Salvar no localStorage
+localStorage.setItem("produtos1", JSON.stringify(produtos));
+
+// 4. Recuperar os produtos salvos
+produtos = JSON.parse(localStorage.getItem("produtos1"));
+
+// 3. Array que vai guardar os favoritos
+let favoritos = [];
+
+// 4. Função para mostrar os produtos
+function mostrarProdutos() {
+
+    container.innerHTML = "";
+
+    produtos.forEach(function(produto) {
+
+        // Verificar se está favoritado
+        let favoritos1 = favoritos.includes(produto.id);
+
+        // Criar o card
+        let card = document.createElement("div");
+        card.className = "card";
+
+        // Criar o parágrafo
+        let p = document.createElement("p");
+        p.textContent = produto.nome;
+
+        // Criar o botão
+        let button = document.createElement("button");
+
+        if (favoritos1) {
+            button.innerText = "❤️ Favoritado";
+            card.classList.add("favorito");
+        } else {
+            button.innerText = "☆ Favoritar";
+        }
+
+        // Evento de clique
+        button.addEventListener("click", function() {
+
+            if (favoritos.includes(produto.id)) {
+
+                let posicao = favoritos.indexOf(produto.id);
+                favoritos.splice(posicao, 1);
+
+            } else {
+
+                favoritos.push(produto.id);
+
+            }
+
+            mostrarProdutos();
+
+        });
+
+        // Colocar os elementos dentro do card
+        card.appendChild(p);
+        card.appendChild(button);
+
+        // Colocar o card na tela
+        container.appendChild(card);
+
+    });
+
+    // Atualizar quantidade
+    quantidade.innerText = favoritos.length;
+
+}
+
+// 5. Executar a função
+mostrarProdutos();
+-->
+
+
+
+
+
+
+
+    <h1>Catálogo de carros</h1>
+
+    <input type="text" id="buscape" placeholder="Pesquisar produto...">
+
+    <div id="cardao"></div> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// 1. Selecionar os elementos do HTML
+const container = document.getElementById("container");
+const quantidade = document.getElementById("quantidade");
+
+// 2. Recuperar os produtos ou criar os iniciais
+let produtos = JSON.parse(localStorage.getItem("produtos")) || [
+    { id: 1, nome: "POCO X8" },
+    { id: 2, nome: "ASUS TUF" },
+    { id: 3, nome: "POCO X5" },
+    { id: 4, nome: "iPhone" }
+];
+
+// 3. Salvar os produtos
+localStorage.setItem("produtos", JSON.stringify(produtos));
+
+// 4. Recuperar os favoritos ou criar um array vazio
+let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+
+// 5. Função para mostrar os produtos
+function mostrarProdutos() {
+
+    container.innerHTML = "";
+
+    produtos.forEach(function(produto) {
+
+        let favoritos1 = favoritos.includes(produto.id);
+
+        let card = document.createElement("div");
+        card.className = "card";
+
+        let p = document.createElement("p");
+        p.textContent = produto.nome;
+
+        let button = document.createElement("button");
+
+        if (favoritos1) {
+            button.innerText = "❤️ Favoritado";
+            card.classList.add("favorito");
+        } else {
+            button.innerText = "☆ Favoritar";
+        }
+
+        // 6. Evento de clique
+        button.addEventListener("click", function() {
+
+            if (favoritos.includes(produto.id)) {
+
+                let posicao = favoritos.indexOf(produto.id);
+                favoritos.splice(posicao, 1);
+
+            } else {
+
+                favoritos.push(produto.id);
+
+            }
+
+            // Salvar os favoritos atualizados
+            localStorage.setItem("favoritos", JSON.stringify(favoritos));
+
+            mostrarProdutos();
+
+        });
+
+        card.appendChild(p);
+        card.appendChild(button);
+
+        container.appendChild(card);
+
+    });
+
+    // Atualizar quantidade de favoritos
+    quantidade.innerText = favoritos.length;
+}
+
+// 7. Mostrar os produtos
+mostrarProdutos();
+
+
+
+</script>
+</body>
+</html>

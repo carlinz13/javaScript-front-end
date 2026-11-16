@@ -1,0 +1,54 @@
+h1>Produtos</h1>
+
+    <select id="categoria">
+        <option value="todos">Todos</option>
+        <option value="celular">Celular</option>
+        <option value="notebook">Notebook</option>
+        <option value="acessorio">Acessório</option>
+    </select>
+
+    <div id="container"></div>
+
+    <script>
+        const categoria = document.getElementById("categoria");
+        const container = document.getElementById("container");
+
+        const produtos = [
+            { nome: "POCO X8", categoria: "celular" },
+            { nome: "ASUS TUF", categoria: "notebook" },
+            { nome: "POCO X5", categoria: "celular" },
+            { nome: "Mouse", categoria: "acessorio" },
+            { nome: "Teclado", categoria: "acessorio" },
+            { nome: "Acer Nitro", categoria: "notebook" }
+        ];
+
+        function renderizarCards(lista) {
+
+            container.innerHTML = "";
+
+            lista.forEach(item => {
+
+                const card = document.createElement("div");
+
+                card.classList.add("card");
+
+                card.textContent = item.nome;
+
+                container.appendChild(card);
+
+            });
+        }
+
+        categoria.addEventListener("change", () => {
+
+            const selecionado = categoria.value;
+
+            const filtrados = selecionado === "todos"
+                ? produtos
+                : produtos.filter(item => item.categoria === selecionado);
+
+            renderizarCards(filtrados);
+
+        });
+
+        renderizarCards(produtos);

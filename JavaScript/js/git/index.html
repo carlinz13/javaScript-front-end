@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalho</title>
+    <link rel="stylesheet" href="css/style.css">
+ 
+</head>
+<body>
+
+    <header>
+        <h1>Sistema de Cadastro</h1>
+        <p>Cadastro e gerenciamento de pessoas</p>
+    </header>
+
+    <main>
+        <section class="formulario">
+            <h2 id="tituloFormulario">Cadastrar Pessoa</h2>
+
+            <form id="formCadastro">
+
+                <div class="campo">
+                    <label for="nome">Nome completo *</label>
+                    <input type="text" id="nome" required
+                           placeholder="Digite seu nome">
+                </div>
+
+                <div class="campo">
+                    <label for="nascimento">Data de nascimento *</label>
+                    <input type="date" id="nascimento" required>
+                </div>
+
+                <div class="campo">
+                    <label for="vinculo">Vínculo *</label>
+                    <select id="vinculo" required>
+                        <option value="">Selecione</option>
+                        <option value="Aluno">Aluno</option>
+                        <option value="Professor">Professor</option>
+                        <option value="Outro">Outro</option>
+                    </select>
+                </div>
+
+                <div class="campo">
+                    <label for="turma">Turma/Setor *</label>
+                    <input type="text" id="turma" required
+                           placeholder="Digite a turma ou setor">
+                </div>
+
+                <div class="campo">
+                    <label for="cep">CEP</label>
+                    <input type="text" id="cep" maxlength="9"
+                           placeholder="00000-000">
+                    <small id="mensagemCep"></small>
+                </div>
+
+                <div class="campo">
+                    <label for="logradouro">Logradouro</label>
+                    <input type="text" id="logradouro"
+                           placeholder="Rua, avenida...">
+                </div>
+
+                <div class="campo">
+                    <label for="bairro">Bairro</label>
+                    <input type="text" id="bairro">
+                </div>
+
+                <div class="campo">
+                    <label for="cidade">Cidade *</label>
+                    <input type="text" id="cidade" required>
+                </div>
+
+                <div class="campo">
+                    <label for="uf">UF *</label>
+                    <select id="uf" required>
+                        <option value="">Selecione</option>
+                        <option>AC</option><option>AL</option>
+                        <option>AP</option><option>AM</option>
+                        <option>BA</option><option>CE</option>
+                        <option>DF</option><option>ES</option>
+                        <option>GO</option><option>MA</option>
+                        <option>MT</option><option>MS</option>
+                        <option>MG</option><option>PA</option>
+                        <option>PB</option><option>PR</option>
+                        <option>PE</option><option>PI</option>
+                        <option>RJ</option><option>RN</option>
+                        <option>RS</option><option>RO</option>
+                        <option>RR</option><option>SC</option>
+                        <option>SP</option><option>SE</option>
+                        <option>TO</option>
+                    </select>
+                </div>
+
+                <div class="botoes">
+                    <button type="submit" id="btnSalvar">
+                        Cadastrar
+                    </button>
+
+                    <button type="button" id="btnCancelar"
+                            class="cancelar" hidden>
+                        Cancelar edição
+                    </button>
+                </div>
+
+                <p class="aviso">* Campos obrigatórios</p>
+
+            </form>
+        </section>
+
+        <section class="tabela-container">
+            <h2>Pessoas cadastradas</h2>
+
+            <p id="totalRegistros">Total de pessoas: 0</p>
+
+            <div class="tabela-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Nascimento</th>
+                            <th>Vínculo</th>
+                            <th>Turma/Setor</th>
+                            <th>Cidade/UF</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="listaPessoas">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Projeto desenvolvido para atividade do SENAI</p>
+    </footer>
+   <script src="js/script.js" ></script>
+</body>
+</html>
